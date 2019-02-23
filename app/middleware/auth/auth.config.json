@@ -1,0 +1,10 @@
+{
+  "fields": {
+    "usernameField": "login",
+    "passwordField": "password"
+  },
+  "options": {
+    "session": false
+  },
+  "secret": "this is secret key"
+}
