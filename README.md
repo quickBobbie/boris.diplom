@@ -2,8 +2,12 @@
 
 mongod - open
 
+cd "{путь до проекта}"/boris.diplom
+
 npm install
 
-cd Desktop/
+cd public
+
+npm install
 
 node index
