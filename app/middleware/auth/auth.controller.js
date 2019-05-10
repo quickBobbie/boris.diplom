@@ -3,7 +3,7 @@ const User = require('../../modules/user/user.model');
 
 module.exports.authByFields = async (login, password, callback) => {
     try {
-        let user = await User.findOne({ login: login })
+        let user = await User.findOne({ login: login });
 
         if (!user) {
             return callback(null, false);
@@ -19,16 +19,24 @@ module.exports.authByFields = async (login, password, callback) => {
     }
 };
 
-module.exports.authByToken = async (payload, callback) => {
-    try {
-        let user = await User.findbyId(payload.id);
-        if (!user) {
-            return callback(null, false);
+module.exports.authByToken = (secret) => {
+    return async (req, res, next) => {
+        try {
+            let token = req.headers['access_token'] || req.query['access_token'];
+            let payload = jwt.decode(token, secret);
+            let id = payload.id || null;
+            let user = await User.findById(id);
+
+            if (!user) {
+                return res.status(401).json({message: "Unauthorized."});
+            }
+
+            req.user = user;
+            return next();
+        } catch(err) {
+            console.log('[auth.controller] error', err);
+            return res.status(401).json({message: "Unauthorized."});
         }
-        return callback(null, user);
-    } catch(err) {
-        console.log('[auth.controller] error', err);
-        callback(err, null);
     }
 };
 
@@ -39,12 +47,4 @@ module.exports.createToken = secret => {
         };
         next();
     };
-};
-
-module.exports.isTeacher = (req, res, next) => {
-    if (req.user.isTeacher) {
-        return next();
-    } else {
-        return res.status(403).json({ message: "Forbidden." })
-    }
 };

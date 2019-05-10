@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2>List of question</h2>
+    </div>
+    <div class="content-data">
+        <form ng-submit="submit()">
+            <div class="form-input">
+                <label>Title</label>
+                <input type="text" placeholder="enter question title" ng-model="data.title" />
+            </div>
+            <div class="form-input">
+                <label>Points</label>
+                <input type="number" placeholder="enter question points" ng-model="data.total" />
+            </div>
+            <button type="submit" class="form-btn">Add</button>
+        </form>
+        <ul ng-if="questions.length" class="list-block">
+            <li ng-repeat="question in questions">
+                <span>{{question.title}} (answers: {{question.answers.length}})</span>
+                <div class="action-list">
+                    <i class="fas fa-plus pointer" title="Add answer" ng-click="showAddForm($index)"></i>
+                </div>
+            </li>
+        </ul>
+        <span ng-if="!questions.length && !isLoading">Questions not found</span>
+        <div ng-if="isLoading" class="loader">Loading...</div>
+    </div>
+</div>

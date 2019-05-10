@@ -1,0 +1,21 @@
+.file-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.file-input input {
+    background: transparent;
+    border-bottom: solid 1px #626d82;
+}
+
+.file-input button {
+    cursor: pointer;
+    background: #626d82;
+    border: none;
+    border-radius: 5px;
+    font: normal .8em arial, tahoma;
+    color: #e6e9ef;
+    padding: 0 10px;
+}

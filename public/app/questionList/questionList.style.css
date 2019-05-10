@@ -1,0 +1,24 @@
+.list-block li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #e6e9ef;
+}
+
+.list-block li span {
+    color: #e6e9ef;
+    margin-left: 10px;
+}
+
+.action-list {
+    margin: 0 10px;
+}
+
+.action-list i {
+    margin: 0 2px;
+}
+
+.pointer {
+    cursor: pointer;
+}

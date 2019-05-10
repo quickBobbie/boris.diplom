@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2>Add a new test</h2>
+    </div>
+    <div class="content-data">
+        <form ng-submit="submit()">
+            <div class="form-input">
+                <label>Title</label>
+                <input type="text" placeholder="inter title of new test" ng-model="data.title" />
+            </div>
+            <div class="form-input">
+                <label>Description</label>
+                <textarea ng-model="data.description" placeholder="inter a test description"></textarea>
+            </div>
+            <button type="submit" class="form-btn">Next</button>
+        </form>
+    </div>
+</div>

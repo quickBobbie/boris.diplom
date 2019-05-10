@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2>List of test</h2>
+        <div class="content-header-content">
+            <form ng-submit="getTestList()">
+                <input type="text" placeholder="search tests" ng-model="search" />
+                <button type="submit">search</button>
+            </form>
+            <a href="#!/addtest" class="link-button" title="Add test">+</a>
+        </div>
+    </div>
+    <div class="content-data">
+        <ul ng-if="testList.length">
+            <li ng-repeat="test in testList"><a href="#!/{{uid === test.owner ? test._id + '/upload' : 'test/' + test._id}}" title="Open test">{{test.title}}</a></li>
+        </ul>
+        <span ng-if="!testList.length && !isLoading">Tests not found</span>
+        <div ng-if="isLoading" class="loader">Loading...</div>
+    </div>
+</div>

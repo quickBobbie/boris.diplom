@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="boris">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+
+<!--    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css">
+
+    <link rel="stylesheet" href="./app/app.style.css">
+    <link rel="stylesheet" href="./app/login/login.style.css">
+    <link rel="stylesheet" href="./app/signup/signup.style.css">
+    <link rel="stylesheet" href="./app/testList/testList.style.css">
+    <link rel="stylesheet" href="./app/addTest/addTest.style.css">
+    <link rel="stylesheet" href="./app/uploadMaterial/uploadMaterial.style.css">
+    <link rel="stylesheet" href="./app/questionList/questionList.style.css">
+    <link rel="stylesheet" href="./app/answerModal/answerModal.style.css">
+
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="./node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="./node_modules/angular-material/angular-material.min.js"></script>
+<!--    <script src="./node_modules/jquery/dist/jquery.min.js"></script>-->
+<!--    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!--    <script src="./node_modules/bootstrap-notify/bootstrap-notify.min.js"></script>-->
+
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.router.js"></script>
+    <script src="./app/app.notify.js"></script>
+
+    <!--controllers-->
+    <script src="./app/app.controller.js"></script>
+    <script src="./app/login/login.controller.js"></script>
+    <script src="./app/signup/signup.controller.js"></script>
+    <script src="./app/testList/testList.controller.js"></script>
+    <script src="./app/addTest/addTest.controller.js"></script>
+    <script src="./app/uploadMaterial/uploadMaterial.controller.js"></script>
+    <script src="./app/questionList/questionList.controller.js"></script>
+    <script src="app/answerModal/answerModal.controller.js"></script>
 </head>
-<body>
-$END$
+<body ng-controller="appController">
+    <div class="container-main">
+        <header ng-if="isLogin">
+            <h1>Testing system</h1>
+            <div class="top-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#!/testlist">Tests</a></li>
+                        <li><a href="#!/analyticlist">Results of tests</a></li>
+                        <li><a href="#!/materiallist">Materials</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul>
+                        <li><a href="#!/profile">{{profileTitle}}</a></li>
+                        <li><a href="#!/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div ng-view class="{{!isLogin ? 'no-auth' : 'content'}}"></div>
+    </div>
 </body>
 </html>

@@ -1,16 +1,5 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
-const userSchema = new mongoose.Schema({
-    uid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    },
-    point: Number,
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    }
-});
 const testSchema = new mongoose.Schema({
     title: String,
     description: String,
@@ -20,12 +9,26 @@ const testSchema = new mongoose.Schema({
             ref: 'question'
         }
     ],
-    total: Number,
+    total: {
+        type: Number,
+        default: 0
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    users: [userSchema],
+    analytics: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'analytic'
+        }
+    ],
+    materials: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'material'
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now()
@@ -43,9 +46,9 @@ testSchema.pre('save', async function (next) {
             user.tests.push(this._id);
             user.save();
         }
-        next();
+        return next();
     } catch(err) {
-        next(err)
+        return next(err)
     }
 });
 

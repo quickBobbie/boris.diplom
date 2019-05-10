@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2>Upload material</h2>
+    </div>
+    <div class="content-data">
+        <form ng-submit="submit()">
+            <div class="form-input">
+                <label>Change material</label>
+                <input type="file" id="material" onchange="angular.element(this).scope().getFile()" hidden />
+                <div class="file-input">
+                    <input type="text" disabled placeholder="No file" ng-model="file.name" />
+                    <button type="button" ng-click="changeFile()">Change file</button>
+                </div>
+            </div>
+            <button type="submit" class="form-btn">Next</button>
+        </form>
+    </div>
+</div>

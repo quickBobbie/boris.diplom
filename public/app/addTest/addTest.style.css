@@ -1,0 +1,42 @@
+.content-header h2 {
+    color: #31708f;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form-input label {
+    font: normal 1.2em/30px arial, tahoma;
+    color: #626d82;
+}
+
+.form-input input, .form-input textarea {
+    height: 25px;
+    border: none;
+    color: #777777;
+}
+
+.form-input textarea {
+    height: 50px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.form-input input:focus, .form-input textarea:focus {
+    border-bottom: solid 1px #626d82;
+}
+
+.form-btn {
+    border: none;
+    background: #626d82;
+    border-radius: 5px;
+    width: 100%;
+    height: 25px;
+    cursor: pointer;
+    font: normal .8em arial, tahoma;
+    color: #e6e9ef;
+}
