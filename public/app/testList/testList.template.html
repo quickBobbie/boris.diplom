@@ -11,7 +11,7 @@
     </div>
     <div class="content-data">
         <ul ng-if="testList.length">
-            <li ng-repeat="test in testList"><a href="#!/{{uid === test.owner ? test._id + '/upload' : 'test/' + test._id}}" title="Open test">{{test.title}}</a></li>
+            <li ng-repeat="test in testList"><a href="#!/{{uid === test.owner ? !test.materials.length ? test._id + '/upload' : test._id + '/questionlist' : 'test/' + test._id}}" title="Open test">{{test.title}}</a></li>
         </ul>
         <span ng-if="!testList.length && !isLoading">Tests not found</span>
         <div ng-if="isLoading" class="loader">Loading...</div>

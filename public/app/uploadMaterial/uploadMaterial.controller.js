@@ -18,8 +18,6 @@ angular.module('boris').controller('uploadMaterialController', [
             let formData = new FormData();
             formData.append('material', scope.file);
 
-            console.log(scope.file)
-
             http.post(url, formData, {
                 headers: {
                     'Content-type': undefined
@@ -42,6 +40,8 @@ angular.module('boris').controller('uploadMaterialController', [
 
         scope.changeFile = () => {
             document.querySelector('#material').click()
-        }
+        };
+
+
     }
 ]);

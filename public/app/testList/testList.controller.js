@@ -2,8 +2,7 @@ angular.module('boris').controller('testListController', [
     '$scope',
     '$http',
     '$rootScope',
-    'notify',
-    function(scope, http, rootScope, notify) {
+    function(scope, http, rootScope) {
         scope.testList = [];
         scope.search = "";
         scope.isLoading = false;
@@ -18,7 +17,6 @@ angular.module('boris').controller('testListController', [
                     let data = res.data || null;
                     if (data && data.tests && data.tests.length) {
                         scope.testList = angular.copy(data.tests);
-                        console.log(scope.testList)
                     }
                     scope.isLoading = false;
                 })

@@ -12,6 +12,10 @@ angular.module('boris').controller("appController", [
             }
         };
 
-        // start();
+        $rootScope.logout = () => {
+            localStorage.clear();
+            $rootScope.isLogin = false;
+            $location.path('/');
+        }
     }
 ]);

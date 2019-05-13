@@ -33,12 +33,12 @@ angular.module('boris').controller('signupController', [
                 if (item.value.length >= 3) {
                     data[key] = item.value;
                 } else if (item.required) {
-                    console.log("No field.");
+                    alert("No field.");
                     return;
                 }
             }
             if (data.password_1 !== data.password_2) {
-                console.log("Passwords do not match.");
+                alert("Passwords do not match.");
                 return;
             }
             let url = [rootScope.API_URL, 'user', 'signup'].join('/');
@@ -50,7 +50,7 @@ angular.module('boris').controller('signupController', [
                     }
                 })
                 .catch(err => {
-                    console.log(err);
+                    alert(err.statusText);
                 });
         }
     }

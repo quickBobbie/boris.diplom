@@ -22,6 +22,26 @@ angular.module('boris').config([
                 controller: 'addTestController',
                 authorized: true
             })
+            .when('/profile', {
+                templateUrl: './app/profile/profile.template.html',
+                controller: 'profileController',
+                authorized: true
+            })
+            .when('/analytic', {
+                templateUrl: './app/analytic/analytic.template.html',
+                controller: 'analyticController',
+                authorized: true
+            })
+            .when('/material', {
+                templateUrl: './app/material/material.template.html',
+                controller: 'materialController',
+                authorized: true
+            })
+            .when('/test/:testId', {
+                templateUrl: './app/test/test.template.html',
+                controller: 'testController',
+                authorized: true
+            })
             .when('/:testId/upload', {
                 templateUrl: './app/uploadMaterial/uploadMaterial.template.html',
                 controller: 'uploadMaterialController',
@@ -30,6 +50,11 @@ angular.module('boris').config([
             .when('/:testId/questionlist', {
                 templateUrl: './app/questionList/questionList.template.html',
                 controller: 'questionListController',
+                authorized: true
+            })
+            .when('/test/:testId/question/:questionId', {
+                templateUrl: './app/question/question.template.html',
+                controller: 'questionController',
                 authorized: true
             })
             .otherwise('/login');
