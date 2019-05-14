@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controller = require('./test.controller');
 const question = require('../question/question.router');
-const material = require('../material/material.router');
+const material = require('../material/material.router').private;
 
 router.post('/create', controller.create);
 router.get('/', controller.get);

@@ -76,3 +76,20 @@ module.exports.download = async (req, res) => {
         res.status(500).json({ error: "Internal server error." });
     }
 };
+
+module.exports.get = async (req, res) => {
+    try {
+        let find = {};
+        if (req.query.search) {
+            find.title = new RegExp(req.query.search);
+        }
+        let materials = await Material.find(find);
+        if (!materials) {
+            return res.status(404).json({message: "Materials not found."});
+        }
+        return res.status(200).json({materials});
+    } catch(err) {
+        console.log("[material.controller] error", err);
+        res.status(500).json({ error: "Internal server error." });
+    }
+};

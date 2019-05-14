@@ -12,6 +12,7 @@ const analyticSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'test'
     },
+    testTitle: String,
     createdAt: {
         type: Date,
         default: Date.now()

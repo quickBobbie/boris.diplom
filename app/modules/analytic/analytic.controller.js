@@ -9,7 +9,7 @@ module.exports.create = async (req, res) => {
         if (!test) {
             return res.status(404).json({message: "Test not found."});
         }
-        let analytic = await new Analytic({user: req.user._id, test: test._id}).save();
+        let analytic = await new Analytic({user: req.user._id, test: test._id, testTitle: test.title}).save();
         return res.status(201).json({analytic});
     } catch (err) {
         console.log("[analytic.controller] error", err);
@@ -43,7 +43,11 @@ module.exports.send = async (req, res) => {
 
 module.exports.get = async (req, res) => {
     try {
-        let analytics = await Analytic.find();
+        let find = {};
+        if (req.query.search) {
+            find.testTitle = new RegExp(req.query.search);
+        }
+        let analytics = await Analytic.find(find);
 
         if (!analytics || !analytics.length) {
             return res.status(404).json({message: "Analytics not found."});

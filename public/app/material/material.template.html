@@ -2,17 +2,17 @@
     <div class="content-header">
         <h2>List of results</h2>
         <div class="content-header-content">
-            <form ng-submit="getAnalyticList()">
-                <input type="text" placeholder="search results" ng-model="search" />
+            <form ng-submit="getMaterialList()">
+                <input type="text" placeholder="search materials" ng-model="search" />
                 <button type="submit">search</button>
             </form>
         </div>
     </div>
     <div class="content-data">
-        <ul ng-if="analyticList.length">
-            <li ng-repeat="analytic in analyticList"></li>
+        <ul ng-if="materialList.length">
+            <li ng-repeat="material in materialList">{{material}}</li>
         </ul>
-        <span ng-if="!testList.length && !isLoading">Results not found</span>
+        <span ng-if="!materilaList.length && !isLoading">Results not found</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>
