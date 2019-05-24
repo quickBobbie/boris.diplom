@@ -1,18 +1,23 @@
 <div class="content-container">
     <div class="content-header">
-        <h2>List of results</h2>
+        <h2>Материалы</h2>
         <div class="content-header-content">
             <form ng-submit="getMaterialList()">
-                <input type="text" placeholder="search materials" ng-model="search" />
-                <button type="submit">search</button>
+                <input type="text" placeholder="поиск материалов" ng-model="search" />
+                <button type="submit">найти</button>
             </form>
         </div>
     </div>
     <div class="content-data">
         <ul ng-if="materialList.length">
-            <li ng-repeat="material in materialList">{{material}}</li>
+            <li ng-repeat="material in materialList">
+                <a href="{{API_URL}}/test/{{material.test}}/material/download/{{material._id}}?access_token={{isLogin}}">
+                    <label>{{material.title}}</label>
+                    <i class="fa fa-arrow-down item-icon" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
-        <span ng-if="!materilaList.length && !isLoading">Results not found</span>
+        <span ng-if="!materialList.length && !isLoading">Нет материалов</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>

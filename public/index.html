@@ -49,19 +49,22 @@
 <body ng-controller="appController">
     <div class="container-main">
         <header ng-if="isLogin">
-            <h1>Testing system</h1>
+            <h1>
+                МБОУ СОШ 18
+                <span>тестирование</span>
+            </h1>
             <div class="top-nav">
                 <nav>
                     <ul>
-                        <li><a href="#!/testlist">Tests</a></li>
-                        <li><a href="#!/analytic">Results of tests</a></li>
-                        <li><a href="#!/material">Materials</a></li>
+                        <li><a href="#!/testlist">Тесты</a></li>
+                        <li><a href="#!/analytic">Результаты</a></li>
+                        <li><a href="#!/material">Материалы</a></li>
                     </ul>
                 </nav>
                 <nav>
                     <ul>
                         <li><a href="#!/profile">{{profileTitle}}</a></li>
-                        <li><a href="#!/logout" ng-click="logout()">Logout</a></li>
+                        <li><a href="#!/logout" ng-click="logout()">Выйти</a></li>
                     </ul>
                 </nav>
             </div>

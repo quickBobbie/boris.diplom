@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require('path');
+const mime = require('mime');
 const Material = require('./material.model');
 
 const renameFile = (oldPath, filename) => {
@@ -65,12 +66,13 @@ module.exports.download = async (req, res) => {
             return res.status(404).json({message: "Material file not found."})
         }
 
-        return res.sendFile(material.path, {}, (err) => {
-            if (err) {
-                console.log("[material.controller] error", err);
-                return res.status(500).json({message: "Send file error."});
-            }
-        })
+        let mimetype = mime.getType(material.path);
+
+        res.setHeader('Content-disposition', 'attachment; filename=' + material.title);
+        res.setHeader('Content-type', mimetype);
+
+        let filestream = fs.createReadStream(material.path);
+        filestream.pipe(res);
     } catch (err) {
         console.log("[material.controller] error", err);
         res.status(500).json({ error: "Internal server error." });

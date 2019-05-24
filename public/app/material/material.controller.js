@@ -2,8 +2,7 @@ angular.module('boris').controller('materialController', [
     '$scope',
     '$rootScope',
     '$http',
-    '$location',
-    function (scope, rootScope, http, $location) {
+    function (scope, rootScope, http) {
         scope.materialList = [];
         scope.search = "";
         scope.isLoading = false;
@@ -25,6 +24,7 @@ angular.module('boris').controller('materialController', [
                     if (err.status === 404) {
                         scope.materialList = [];
                     }
+                    alert(err.statusText);
                     scope.isLoading = false;
                 })
         };
