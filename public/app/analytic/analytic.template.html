@@ -1,10 +1,10 @@
 <div class="content-container">
     <div class="content-header">
-        <h2>List of results</h2>
+        <h2>Результаты тестирования</h2>
         <div class="content-header-content">
             <form ng-submit="getAnalyticList()">
-                <input type="text" placeholder="search results" ng-model="search" />
-                <button type="submit">search</button>
+                <input type="text" placeholder="поиск результатов" ng-model="search" />
+                <button type="submit">найти</button>
             </form>
         </div>
     </div>
@@ -12,7 +12,7 @@
         <ul ng-if="analyticList.length">
             <li ng-repeat="analytic in analyticList"></li>
         </ul>
-        <span ng-if="!testList.length && !isLoading">Results not found</span>
+        <span ng-if="!testList.length && !isLoading">Результатов нет</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>

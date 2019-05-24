@@ -2,7 +2,7 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Create a new answer</h2>
+                <h2>Ответ на вопрос</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <i class="fas fa-times"></i>
@@ -13,20 +13,20 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="input-md">
-                    <label>Title</label>
+                    <label>Текст ответа</label>
                     <input type="text" ng-model="answer.title" flex="100">
                 </md-input-container>
                 <br>
-                <md-checkbox md-no-ink ng-model="answer.isValid" aria-label="No Ink Effects">is valid</md-checkbox>
+                <md-checkbox md-no-ink ng-model="answer.isValid" aria-label="No Ink Effects">Это правильный ответ</md-checkbox>
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
             <md-button ng-click="cancel()">
-                Cancel
+                Отмена
             </md-button>
             <md-button ng-click="create()" class="md-primary">
-                Create
+                Создать
             </md-button>
         </md-dialog-actions>
     </form>

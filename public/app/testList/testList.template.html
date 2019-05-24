@@ -1,19 +1,26 @@
 <div class="content-container">
     <div class="content-header">
-        <h2>List of test</h2>
+        <h2>Тесты</h2>
         <div class="content-header-content">
             <form ng-submit="getTestList()">
-                <input type="text" placeholder="search tests" ng-model="search" />
-                <button type="submit">search</button>
+                <input type="text" placeholder="писк тестов" ng-model="search" />
+                <button type="submit">найти</button>
             </form>
             <a href="#!/addtest" class="link-button" title="Add test">+</a>
         </div>
     </div>
     <div class="content-data">
         <ul ng-if="testList.length">
-            <li ng-repeat="test in testList"><a href="#!/{{uid === test.owner ? !test.materials.length ? test._id + '/upload' : test._id + '/questionlist' : 'test/' + test._id}}" title="Open test">{{test.title}}</a></li>
+            <li ng-repeat="test in testList">
+                <a
+                    href="#!/{{uid === test.owner ? !test.materials.length ? test._id + '/upload' : test._id + '/questionlist' : 'test/' + test._id}}"
+                    title="Open test"
+                >
+                    {{test.title}}{{uid === test.owner ? ' (мой)' : ''}}
+                </a>
+            </li>
         </ul>
-        <span ng-if="!testList.length && !isLoading">Tests not found</span>
+        <span ng-if="!testList.length && !isLoading">Нет тестов</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>

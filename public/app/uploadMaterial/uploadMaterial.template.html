@@ -1,18 +1,18 @@
 <div class="content-container">
     <div class="content-header">
-        <h2>Upload material</h2>
+        <h2>Загрузка материала</h2>
     </div>
     <div class="content-data">
         <form ng-submit="submit()">
             <div class="form-input">
-                <label>Change material</label>
+                <label>Выберите файл материала</label>
                 <input type="file" id="material" onchange="angular.element(this).scope().getFile()" hidden />
                 <div class="file-input">
-                    <input type="text" disabled placeholder="No file" ng-model="file.name" />
-                    <button type="button" ng-click="changeFile()">Change file</button>
+                    <input type="text" disabled placeholder="Нет файла" ng-model="file.name" />
+                    <button type="button" ng-click="changeFile()">Выбрать файл</button>
                 </div>
             </div>
-            <button type="submit" class="form-btn">Next</button>
+            <button type="submit" class="form-btn">Далее</button>
         </form>
     </div>
 </div>

@@ -137,3 +137,19 @@ module.exports.pwd = async (req, res) => {
         return res.status(500).json({message: "Internal server error."});
     }
 };
+
+module.exports.get = async (req, res) => {
+    try {
+        let user = {
+            _id: req.user._id,
+            login: req.user.login,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname
+        };
+
+        return res.status(200).json({user});
+    } catch(err) {
+        console.log("[user.controller] error", err);
+        return res.status(500).json({message: "Internal server error."});
+    }
+};

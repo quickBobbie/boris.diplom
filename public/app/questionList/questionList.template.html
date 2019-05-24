@@ -1,18 +1,18 @@
 <div class="content-container">
     <div class="content-header">
-        <h2>List of question</h2>
+        <h2>Список вопросов</h2>
     </div>
     <div class="content-data">
         <form ng-submit="submit()">
             <div class="form-input">
-                <label>Title</label>
-                <input type="text" placeholder="enter question title" ng-model="data.title" />
+                <label>Вопрос</label>
+                <input type="text" placeholder="введите вопрос" ng-model="data.title" />
             </div>
             <div class="form-input">
-                <label>Points</label>
-                <input type="number" placeholder="enter question points" ng-model="data.total" />
+                <label>Баллы за правильный ответ</label>
+                <input type="number" placeholder="введите баллы" ng-model="data.total" />
             </div>
-            <button type="submit" class="form-btn">Add</button>
+            <button type="submit" class="form-btn">Добавить</button>
         </form>
         <ul ng-if="questions.length" class="list-block">
             <li ng-repeat="question in questions">
@@ -22,7 +22,7 @@
                 </div>
             </li>
         </ul>
-        <span ng-if="!questions.length && !isLoading">Questions not found</span>
+        <span ng-if="!questions.length && !isLoading">Нет вопросов</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>

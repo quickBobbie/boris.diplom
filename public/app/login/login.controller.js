@@ -27,7 +27,6 @@ angular.module('boris').controller('loginController', [
                     let data = res.data;
                     if (data && data.token) {
                         localStorage.setItem("access_token", data.token);
-                        localStorage.setItem("uid", data.user._id);
                         rootScope.isLogin = localStorage.getItem("access_token");
                         $location.path('/testlist')
                     }

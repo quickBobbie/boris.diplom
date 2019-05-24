@@ -6,5 +6,6 @@ router.post('/signup', controller.signup);
 router.post('/signin', auth.authenticate('local', auth.params), auth.createToken, controller.signin);
 router.put('/update', auth.authByToken, controller.update);
 router.put('/pwd', auth.authByToken, controller.pwd);
+router.get('/', auth.authByToken, controller.get);
 
 module.exports = router;
