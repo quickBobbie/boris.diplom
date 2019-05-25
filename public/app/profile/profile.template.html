@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2>{{user.firstname}} {{user.lastname}}</h2>
+    </div>
+    <div class="content-data">
+        <form ng-submit="updateInfo()">
+            <h3>Информация о пользователе</h3>
+            <div class="form-input">
+                <label>Логин</label>
+                <input type="text" placeholder="{{user.login}}" ng-model="data.login" />
+            </div>
+            <div class="form-input">
+                <label>Имя</label>
+                <input type="text" placeholder="{{user.firstname}}" ng-model="data.firstname" />
+            </div>
+            <div class="form-input">
+                <label>Фамилия</label>
+                <input type="text" placeholder="{{user.lastname}}" ng-model="data.lastname" />
+            </div>
+            <button type="submit" class="form-btn">Изменить</button>
+        </form>
+        <form ng-submit="updatePwd()">
+            <h3>Пароль</h3>
+            <div class="form-input">
+                <label>Старый пароль</label>
+                <input type="password" placeholder="{{password.oldpassword}}" ng-model="password.oldpassword" />
+            </div>
+            <div class="form-input">
+                <label>Новый пароль</label>
+                <input type="password" placeholder="{{password.password_1}}" ng-model="password.password_1" />
+            </div>
+            <div class="form-input">
+                <label>Еще раз новый пароль</label>
+                <input type="password" placeholder="{{password.password_2}}" ng-model="password.password_2" />
+            </div>
+            <button type="submit" class="form-btn">Изменить</button>
+        </form>
+    </div>
+</div>

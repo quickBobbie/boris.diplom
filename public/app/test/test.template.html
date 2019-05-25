@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="content-container">
+    <div class="content-header">
+        <h2 ng-if="!isLoading">Тест {{test.title}}</h2>
+    </div>
+    <div class="content-data">
+        <div class="test-info" ng-if="!isLoading">
+            <span>Вопросов: {{test.questions.length}}</span>
+            <span>Максимально баллов: {{test.total}}</span>
+            <p>{{test.description}}</p>
+        </div>
+        <ul ng-if="!isLoading">
+            <li ng-repeat="material in test.materials">
+                <a href="{{API_URL}}/test/{{test._id}}/material/download/{{material._id}}?access_token={{isLogin}}">
+                    <label>{{material.title}}</label>
+                    <i class="fa fa-arrow-down item-icon" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#!/test/{{test._id}}/question" ng-click="startTest()">
+                    <label>Начать тестирование</label>
+                    <i class="fa fa-chevron-right item-icon" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        <div ng-if="isLoading" class="loader">Loading...</div>
+    </div>
+</div>

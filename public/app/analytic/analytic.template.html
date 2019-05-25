@@ -10,7 +10,15 @@
     </div>
     <div class="content-data">
         <ul ng-if="analyticList.length">
-            <li ng-repeat="analytic in analyticList"></li>
+            <li ng-repeat="analytic in analyticList">
+                <a
+                    href="#!/analytic/{{analytic._id}}"
+                    title="Посмотреть результат"
+                >
+                    <label>{{analytic.test.title}} ({{analytic.user.lastname}})</label>
+                    <i class="fa fa-chevron-right item-icon" aria-hidden="true"></i>
+                </a>
+            </li>
         </ul>
         <span ng-if="!testList.length && !isLoading">Результатов нет</span>
         <div ng-if="isLoading" class="loader">Loading...</div>

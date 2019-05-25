@@ -2,7 +2,8 @@ angular.module('boris').controller('signupController', [
     '$scope',
     '$rootScope',
     '$http',
-    function(scope, rootScope, http) {
+    '$location',
+    function(scope, rootScope, http, $location) {
         scope.form = {
             login: {
                 value: "",
@@ -47,6 +48,8 @@ angular.module('boris').controller('signupController', [
                     let data = res.data;
                     if (data && data.token) {
                         localStorage.setItem("access_token", data.token);
+                        rootScope.isLogin = localStorage.getItem("access_token");
+                        $location.path("/testlist")
                     }
                 })
                 .catch(err => {

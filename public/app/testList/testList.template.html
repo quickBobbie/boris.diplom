@@ -16,7 +16,9 @@
                     href="#!/{{uid === test.owner ? !test.materials.length ? test._id + '/upload' : test._id + '/questionlist' : 'test/' + test._id}}"
                     title="Open test"
                 >
-                    {{test.title}}{{uid === test.owner ? ' (мой)' : ''}}
+                    <label>{{test.title}}</label>
+                    <i ng-if="test.owner !== uid" class="fa fa-chevron-right item-icon" aria-hidden="true"></i>
+                    <i ng-if="test.owner === uid" class="fa fa-cog item-icon" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>

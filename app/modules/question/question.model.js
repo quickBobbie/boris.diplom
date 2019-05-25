@@ -27,7 +27,6 @@ const questionSchema = new mongoose.Schema({
 
 questionSchema.pre('save', async function (next) {
     try {
-        console.log(this)
         let test = await Test.findById(this.test);
         if (!test) {
             this.remove();

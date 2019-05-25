@@ -4,7 +4,7 @@ angular.module('boris').controller('analyticController', [
     '$http',
     '$location',
     function (scope, rootScope, http, $location) {
-        scope.analticList = [];
+        scope.analyticList = [];
         scope.search = "";
         scope.isLoading = false;
 
@@ -16,14 +16,14 @@ angular.module('boris').controller('analyticController', [
             http.get(url)
                 .then(res => {
                     let data = res.data || null;
-                    if (data && data.tests && data.tests.length) {
-                        scope.analticList = angular.copy(data.tests);
+                    if (data && data.analytics && data.analytics.length) {
+                        scope.analyticList = angular.copy(data.analytics);
                     }
                     scope.isLoading = false;
                 })
                 .catch(err => {
                     if (err.status === 404) {
-                        scope.analticList = [];
+                        scope.analyticList = [];
                     }
                     scope.isLoading = false;
                 })

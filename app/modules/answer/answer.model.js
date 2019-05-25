@@ -17,13 +17,15 @@ const answerSchema = new mongoose.Schema({
 
 answerSchema.pre('save', async function (next) {
     try {
-        let question = await Question.findById(this.question);
-        if (!question) {
-            this.remove();
-            return next(new Error("No question"))
+        if (this.isNew) {
+            let question = await Question.findById(this.question);
+            if (!question) {
+                this.remove();
+                return next(new Error("No question"))
+            }
+            question.answers.push(this._id);
+            await question.save();
         }
-        question.answers.push(this._id);
-        await question.save();
         return next();
     } catch (err) {
         console.log("[answer.model] error", err);

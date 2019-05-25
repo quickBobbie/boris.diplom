@@ -37,6 +37,11 @@ angular.module('boris').config([
                 controller: 'materialController',
                 authorized: true
             })
+            .when('/analytic/:analyticId', {
+                templateUrl: './app/analyticFull/analyticFull.template.html',
+                controller: 'analyticFullController',
+                authorized: true
+            })
             .when('/test/:testId', {
                 templateUrl: './app/test/test.template.html',
                 controller: 'testController',
@@ -52,7 +57,7 @@ angular.module('boris').config([
                 controller: 'questionListController',
                 authorized: true
             })
-            .when('/test/:testId/question/:questionId', {
+            .when('/test/:testId/question', {
                 templateUrl: './app/question/question.template.html',
                 controller: 'questionController',
                 authorized: true

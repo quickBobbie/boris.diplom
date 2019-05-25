@@ -1,0 +1,14 @@
+.test-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.test-info span {
+    line-height: 2em;
+}
+
+.test-info p {
+    font: normal 1em/.8 arial, tahoma;
+    color: #777777;
+    margin: 20px 0;
+}

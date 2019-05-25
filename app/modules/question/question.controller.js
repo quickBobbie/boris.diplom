@@ -54,7 +54,8 @@ module.exports.getById = async (req, res) => {
     try {
         let question = await Question.findById(req.params.questionId)
             .populate({
-                path: 'answers'
+                path: 'answers',
+                select: "title"
             });
 
         if (!question) {

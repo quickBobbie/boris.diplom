@@ -60,7 +60,11 @@ module.exports.get = async (req, res) => {
 
 module.exports.getById = async (req, res) => {
     try {
-        let test = await Test.findById(req.params.testId);
+        let test = await Test.findById(req.params.testId)
+            .populate({
+                path: "materials",
+                select: "title"
+            });
         if (!test) {
             return res.status(404).json({message: "Test not found."});
         }
