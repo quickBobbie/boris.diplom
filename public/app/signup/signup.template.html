@@ -1,27 +1,27 @@
 <div class="form-container no-auth-form">
-    <h2>Login</h2>
+    <h2>Регистрация</h2>
     <form ng-submit="submit()">
         <div class="input-container">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" ng-model="form.login.value">
+            <input type="email" placeholder="Введите email" ng-model="form.login.value">
         </div>
         <div class="input-container">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your password" ng-model="form.password_1.value">
+            <label>Пароль</label>
+            <input type="password" placeholder="Введите пароль" ng-model="form.password_1.value">
         </div>
         <div class="input-container">
-            <label>Repeat password</label>
-            <input type="password" placeholder="Enter your password" ng-model="form.password_2.value">
+            <label>Повторите пароль</label>
+            <input type="password" placeholder="Повторите пароль" ng-model="form.password_2.value">
         </div>
         <div class="input-container">
-            <label>First name</label>
-            <input type="text" placeholder="Enter your password" ng-model="form.firstname.value">
+            <label>Имя</label>
+            <input type="text" placeholder="Введите имя" ng-model="form.firstname.value">
         </div>
         <div class="input-container">
-            <label>Last name</label>
-            <input type="text" placeholder="Enter your password" ng-model="form.lastname.value">
+            <label>Фамилия</label>
+            <input type="text" placeholder="Введите фамилию" ng-model="form.lastname.value">
         </div>
-        <button type="submit" class="submit-no-auth">Sign up</button>
+        <button type="submit" class="submit-no-auth">Зарегистрироваться</button>
     </form>
-    <a href="/#!/login" class="form-link submit-no-auth">Login</a>
+    <a href="/#!/login" class="form-link submit-no-auth">Авторизация</a>
 </div>
