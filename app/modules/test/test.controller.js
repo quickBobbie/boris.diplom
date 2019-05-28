@@ -45,7 +45,7 @@ module.exports.get = async (req, res) => {
         if (search) {
             find.title = new RegExp(search);
         }
-        let tests = await Test.find(find);
+        let tests = await Test.find(find).sort({createdAt: -1});
 
         if (!tests || !tests.length) {
             return res.status(404).json({message: "Tests not found."});

@@ -10,7 +10,11 @@ const materialSchema = new mongoose.Schema({
         ref: 'test'
     },
     path: String,
-    title: String
+    title: String,
+    uploadAt: {
+        type: Date,
+        default: Date.now()
+    }
 });
 
 materialSchema.pre("save", async function (next) {
@@ -24,8 +28,8 @@ materialSchema.pre("save", async function (next) {
 
             test.materials.push(this._id);
             await test.save();
-            return next();
         }
+        return next();
     } catch(err) {
         return next(err);
     }

@@ -85,7 +85,7 @@ module.exports.get = async (req, res) => {
         if (req.query.search) {
             find.title = new RegExp(req.query.search);
         }
-        let materials = await Material.find(find);
+        let materials = await Material.find(find).sort({uploadAt: -1});
         if (!materials) {
             return res.status(404).json({message: "Materials not found."});
         }

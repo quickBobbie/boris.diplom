@@ -27,14 +27,17 @@ const questionSchema = new mongoose.Schema({
 
 questionSchema.pre('save', async function (next) {
     try {
-        let test = await Test.findById(this.test);
-        if (!test) {
-            this.remove();
-            return next(new Error("Test not found."))
+        if (this.isNew) {
+            let test = await Test.findById(this.test);
+            if (!test) {
+                this.remove();
+                return next(new Error("Test not found."))
+            }
+            test.questions.push(this._id);
+            test.total = test.total + this.total || this.total;
+            await test.save();
         }
-        test.questions.push(this._id);
-        test.total = test.total + this.total || this.total;
-        await test.save();
+
         return next();
     } catch(err) {
         console.log("[question.model] error", err);
