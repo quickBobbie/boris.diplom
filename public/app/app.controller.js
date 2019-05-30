@@ -7,6 +7,7 @@ angular.module('boris').controller("appController", [
         $rootScope.uid = localStorage.getItem('uid');
         $rootScope.API_URL = "http://localhost:3000";
         $rootScope.profileTitle = "Profile";
+        $rootScope.isTeacher = false;
         $rootScope.config = {
             headers: {
                 "Content-Type": "application/json"
@@ -30,6 +31,7 @@ angular.module('boris').controller("appController", [
                             localStorage.setItem("lastname", user.lastname);
                             localStorage.setItem("uid", user._id);
                             $rootScope.profileTitle = user.lastname + " " + user.firstname;
+                            $rootScope.isTeacher = angular.copy(user.isTeacher);
                         }
                     })
                     .catch(err => {

@@ -22,12 +22,18 @@
     margin: 5px 0;
 }
 
-.input-container label {
+.input-container-horizontal {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+}
+
+.input-container label, .input-container-horizontal label {
     font: 300 1em/1.5em arial, tahoma;
     color: #777;
 }
 
-.input-container input {
+.input-container input, .input-container-horizontal input {
     height: 2em;
     border: none;
     background: transparent;

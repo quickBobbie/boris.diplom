@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     },
     firstname: String,
     lastname: String,
+    isTeacher: {
+        type: Boolean,
+        default: false
+    },
     tests: [
         {
             type: mongoose.Schema.Types.ObjectId,

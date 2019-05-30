@@ -15,12 +15,12 @@
                     href="#!/analytic/{{analytic._id}}"
                     title="Посмотреть результат"
                 >
-                    <label>{{analytic.test.title}} ({{analytic.user.lastname}})</label>
+                    <label>{{analytic.test.title}} ({{analytic.user.lastname}}) - {{analytic.points}}</label>
                     <i class="fa fa-chevron-right item-icon" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
-        <span ng-if="!testList.length && !isLoading">Результатов нет</span>
+        <span ng-if="!analyticList.length && !isLoading">Результатов нет</span>
         <div ng-if="isLoading" class="loader">Loading...</div>
     </div>
 </div>

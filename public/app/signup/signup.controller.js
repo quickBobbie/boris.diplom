@@ -24,6 +24,10 @@ angular.module('boris').controller('signupController', [
             lastname: {
                 value: "",
                 required: false
+            },
+            isTeacher: {
+                value: false,
+                required: false
             }
         };
 
@@ -36,12 +40,15 @@ angular.module('boris').controller('signupController', [
                 } else if (item.required) {
                     alert("No field.");
                     return;
+                } else if (typeof item.value === 'boolean') {
+                    data[key] = item.value;
                 }
             }
             if (data.password_1 !== data.password_2) {
                 alert("Passwords do not match.");
                 return;
             }
+
             let url = [rootScope.API_URL, 'user', 'signup'].join('/');
             http.post(url, data, rootScope.headers)
                 .then(res => {

@@ -31,7 +31,10 @@ angular.module('boris').controller('analyticFullController', [
                 .then(res => {
                     scope.isLoading = false;
                     if (res.data && res.data.analytic) {
-                        scope.analytic = angular.copy(res.data.analytic);
+                        scope.analytic = angular.copy(rootScope.chechPoints(res.data.analytic));
+                        if (!rootScope.isTeacher && rootScope.uid !== scope.analytic.user._id) {
+                            $location.path('/testlist');
+                        }
                     }
                 })
                 .catch(err => {

@@ -144,7 +144,8 @@ module.exports.get = async (req, res) => {
             _id: req.user._id,
             login: req.user.login,
             firstname: req.user.firstname,
-            lastname: req.user.lastname
+            lastname: req.user.lastname,
+            isTeacher: req.user.isTeacher
         };
 
         return res.status(200).json({user});

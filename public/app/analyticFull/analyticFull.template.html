@@ -6,7 +6,8 @@
         <div class="test-info" ng-if="!isLoading">
             <span>Вопросов: {{analytic.test.questions.length}}</span>
             <span>Максимально баллов: {{analytic.test.total}}</span>
-            <span>Набрано баллов: {{analytic.total}}</span>
+            <span>Набрано баллов: {{analytic.total}} - {{analytic.percent}}%</span>
+            <span>Оценка: {{analytic.points}}</span>
             <span>Пользователь: {{analytic.user.firstname}} {{analytic.user.lastname}}</span>
             <span>Дата: {{getDate(analytic.createdAt)}}</span>
         </div>
