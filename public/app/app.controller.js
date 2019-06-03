@@ -5,7 +5,7 @@ angular.module('boris').controller("appController", [
     function ($rootScope, $location, $http) {
         $rootScope.isLogin = localStorage.getItem('access_token');
         $rootScope.uid = localStorage.getItem('uid');
-        $rootScope.API_URL = "http://localhost:3000";
+        $rootScope.API_URL = "http://92.53.124.167";
         $rootScope.profileTitle = "Profile";
         $rootScope.isTeacher = false;
         $rootScope.config = {
