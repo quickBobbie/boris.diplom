@@ -31,14 +31,16 @@ angular.module('boris').controller('analyticFullController', [
                 .then(res => {
                     scope.isLoading = false;
                     if (res.data && res.data.analytic) {
-                        scope.analytic = angular.copy(rootScope.chechPoints(res.data.analytic));
-                        if (!rootScope.isTeacher || rootScope.uid !== scope.analytic.user._id) {
+                        if (rootScope.isTeacher || rootScope.uid === res.data.analytic.user._id) {
+                            scope.analytic = angular.copy(rootScope.checkPoints(res.data.analytic));
+                        } else {
                             $location.path('/testlist');
                         }
                     }
                 })
                 .catch(err => {
                     scope.isLoading = false;
+                    console.log(err)
                     alert(err.statusText);
                     $location.path("/analytic")
                 })
