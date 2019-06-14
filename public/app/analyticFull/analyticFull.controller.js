@@ -40,7 +40,6 @@ angular.module('boris').controller('analyticFullController', [
                 })
                 .catch(err => {
                     scope.isLoading = false;
-                    console.log(err)
                     alert(err.statusText);
                     $location.path("/analytic")
                 })

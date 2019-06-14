@@ -14,6 +14,9 @@ angular.module('boris').controller('questionController', [
         };
 
         scope.getQuestion = () => {
+            if (rootScope.isTeacher) {
+                return $location.path('/testlist');
+            }
             scope.isLoading = true;
             let url = [rootScope.API_URL, 'test', $routeParams.testId, 'question', scope.questions[scope.questionIndex]].join('/');
             url = `${url}?access_token=${rootScope.isLogin}`;
@@ -23,7 +26,6 @@ angular.module('boris').controller('questionController', [
                     scope.isLoading = false;
                     if (res.data && res.data.question) {
                         scope.question = angular.copy(res.data.question);
-                        console.log(scope.question)
                     }
                 })
                 .catch(err => {

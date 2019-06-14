@@ -15,7 +15,7 @@
                     <i class="fa fa-arrow-down item-icon" aria-hidden="true"></i>
                 </a>
             </li>
-            <li>
+            <li ng-if="!isTeacher">
                 <a href="#!/test/{{test._id}}/question" ng-click="startTest()">
                     <label>Начать тестирование</label>
                     <i class="fa fa-chevron-right item-icon" aria-hidden="true"></i>
