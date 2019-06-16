@@ -69,7 +69,7 @@ module.exports.download = async (req, res) => {
         let mimetype = mime.getType(material.path);
 
         res.attachment(material.title);
-        res.set('Content-disposition', 'attachment; filename=' + material.title);
+        // res.set('Content-disposition', 'attachment; filename=' + material.title);
         res.set('Content-type', mimetype);
 
         let filestream = fs.createReadStream(material.path);
