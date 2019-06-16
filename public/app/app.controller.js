@@ -18,6 +18,7 @@ angular.module('boris').controller("appController", [
             localStorage.clear();
             $rootScope.isLogin = false;
             $rootScope.isTeacher = false;
+            $rootScope.uid = false;
             $location.path('/login');
         };
 
