@@ -3,7 +3,7 @@
         <h2>Загрузка материала</h2>
     </div>
     <div class="content-data">
-        <form ng-submit="submit()">
+        <form ng-submit="submit()" enctype="multipart/form-data">
             <div class="form-input">
                 <label>Выберите файл материала</label>
                 <input type="file" id="material" onchange="angular.element(this).scope().getFile()" hidden />
