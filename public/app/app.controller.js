@@ -34,6 +34,7 @@ angular.module('boris').controller("appController", [
                             localStorage.setItem("uid", user._id);
                             $rootScope.profileTitle = user.lastname + " " + user.firstname;
                             $rootScope.isTeacher = angular.copy(user.isTeacher);
+                            $rootScope.uid = localStorage.getItem('uid');
                         }
                     })
                     .catch(err => {
