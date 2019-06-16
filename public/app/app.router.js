@@ -71,6 +71,7 @@ angular.module('boris').config([
         if (!token && next.$$route && next.$$route.authorized) {
             localStorage.clear();
             $rootScope.isLogin = false;
+            $rootScope.isTeacher = false;
             $location.path('/login');
         }
         if (token && next.$$route && !next.$$route.authorized) {

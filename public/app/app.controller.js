@@ -17,6 +17,7 @@ angular.module('boris').controller("appController", [
         $rootScope.logout = () => {
             localStorage.clear();
             $rootScope.isLogin = false;
+            $rootScope.isTeacher = false;
             $location.path('/login');
         };
 
