@@ -16,7 +16,7 @@
         </form>
         <ul ng-if="questions.length" class="list-block">
             <li ng-repeat="question in questions">
-                <span>{{question.title}} (answers: {{question.answers.length}})</span>
+                <span>{{question.title}} (ответов: {{question.answers.length}})</span>
                 <div class="action-list">
                     <i class="fas fa-plus pointer" title="Add answer" ng-click="showAddForm($index)"></i>
                 </div>
